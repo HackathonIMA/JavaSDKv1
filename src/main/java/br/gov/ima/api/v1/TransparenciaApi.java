@@ -59,20 +59,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das aÃ§Ãµes da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<AcoesResponse>
 	 */
-	public List<AcoesResponse> queryfiltroAcao (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<AcoesResponse> queryfiltroAcao (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling queryfiltroAcao");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -101,10 +97,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -151,24 +149,20 @@ public class TransparenciaApi {
 	 * Consulta da aÃ§Ã£o da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return AcoesResponse
 	 */
-	public AcoesResponse queryfiltroAcao2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public AcoesResponse queryfiltroAcao2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling queryfiltroAcao2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling queryfiltroAcao2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -199,10 +193,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -248,20 +244,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta de credores.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<CredorResponse>
 	 */
-	public List<CredorResponse> ptrLkpCredor (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<CredorResponse> ptrLkpCredor (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpCredor");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -290,10 +282,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -340,24 +334,20 @@ public class TransparenciaApi {
 	 * Consulta de credor.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return CredorResponse
 	 */
-	public CredorResponse ptrLkpCredor2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public CredorResponse ptrLkpCredor2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpCredor2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpCredor2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -388,10 +378,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -437,10 +429,11 @@ public class TransparenciaApi {
 	/**
 	 * Consulta de despesas da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @param anoExercicio Ano de exercÃ­cio
 	 * @param acao AÃ§Ã£o, lista disponÃ­vel em GET /transparencia/acoes
 	 * @param mes MÃªs desejado
@@ -454,14 +447,9 @@ public class TransparenciaApi {
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
 	 * @return List<DespesasResponse>
 	 */
-	public List<DespesasResponse> ptrFtDespesa (String accessToken, String clientId, String offset, String limit, String anoExercicio, String acao, String mes, String orgao, String funcao, String subfuncao, String programa, String origemFonte, String fonte, String naturezaDespesa, String expand) throws ApiException {
+	public List<DespesasResponse> ptrFtDespesa (String clientId, String offset, String limit, List<String> fields, List<String> filters, String anoExercicio, String acao, String mes, String orgao, String funcao, String subfuncao, String programa, String origemFonte, String fonte, String naturezaDespesa, String expand) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrFtDespesa");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -490,6 +478,10 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		if (anoExercicio != null)
 			queryParams.put("anoExercicio", apiClient.parameterToString(anoExercicio));
 		if (acao != null)
@@ -514,8 +506,6 @@ public class TransparenciaApi {
 			queryParams.put("expand", apiClient.parameterToString(expand));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -562,23 +552,19 @@ public class TransparenciaApi {
 	 * Consulta de uma despesa da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return DespesasResponse
 	 */
-	public DespesasResponse ptrFtDespesa2 (String id, String accessToken, String clientId, String expand) throws ApiException {
+	public DespesasResponse ptrFtDespesa2 (String id, String clientId, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrFtDespesa2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrFtDespesa2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -597,10 +583,12 @@ public class TransparenciaApi {
 
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -646,20 +634,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das despesas dos elementos da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<ElementoDespesaResponse>
 	 */
-	public List<ElementoDespesaResponse> ptrLkpElementoDespesa (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<ElementoDespesaResponse> ptrLkpElementoDespesa (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpElementoDespesa");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -688,10 +672,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -738,24 +724,20 @@ public class TransparenciaApi {
 	 * Consulta da despesa do elemento da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return ElementoDespesaResponse
 	 */
-	public ElementoDespesaResponse ptrLkpElementoDespesa2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public ElementoDespesaResponse ptrLkpElementoDespesa2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpElementoDespesa2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpElementoDespesa2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -786,10 +768,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -835,20 +819,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das despesas dos elementos da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<EmpenhoResponse>
 	 */
-	public List<EmpenhoResponse> ptrLkpNe (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<EmpenhoResponse> ptrLkpNe (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpNe");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -877,10 +857,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -927,24 +909,20 @@ public class TransparenciaApi {
 	 * Consulta da despesa do elemento da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return EmpenhoResponse
 	 */
-	public EmpenhoResponse ptrLkpNe2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public EmpenhoResponse ptrLkpNe2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpNe2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpNe2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -975,10 +953,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1024,21 +1004,17 @@ public class TransparenciaApi {
 	/**
 	 * Consulta de contas das fontes da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<FontesResponse>
 	 */
-	public List<FontesResponse> ptrLkpFonteDetalhada (String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public List<FontesResponse> ptrLkpFonteDetalhada (String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFonteDetalhada");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -1069,10 +1045,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1119,25 +1097,21 @@ public class TransparenciaApi {
 	 * Consulta de conta da fonte da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return FontesResponse
 	 */
-	public FontesResponse ptrLkpFonteDetalhada2 (String id, String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public FontesResponse ptrLkpFonteDetalhada2 (String id, String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpFonteDetalhada2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFonteDetalhada2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -1170,10 +1144,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1219,20 +1195,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das receitas das fontes detalhadas da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<FonteDetalhadaResponse>
 	 */
-	public List<FonteDetalhadaResponse> ptrLkpFonte (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<FonteDetalhadaResponse> ptrLkpFonte (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFonte");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -1261,10 +1233,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1311,24 +1285,20 @@ public class TransparenciaApi {
 	 * Consulta da receita da fonte detalhada da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return FonteDetalhadaResponse
 	 */
-	public FonteDetalhadaResponse ptrLkpFonte2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public FonteDetalhadaResponse ptrLkpFonte2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpFonte2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFonte2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -1359,10 +1329,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1408,20 +1380,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das funÃ§Ãµes da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<FuncoesResponse>
 	 */
-	public List<FuncoesResponse> ptrLkpFuncao (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<FuncoesResponse> ptrLkpFuncao (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFuncao");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -1450,10 +1418,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1500,24 +1470,20 @@ public class TransparenciaApi {
 	 * Consulta da funÃ§Ã£o da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return FuncoesResponse
 	 */
-	public FuncoesResponse ptrLkpFuncao2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public FuncoesResponse ptrLkpFuncao2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpFuncao2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpFuncao2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -1548,10 +1514,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1597,21 +1565,17 @@ public class TransparenciaApi {
 	/**
 	 * Consulta de contas das naturezas das receitas da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<NaturezasResponse>
 	 */
-	public List<NaturezasResponse> ptrLkpSubalineaReceita (String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public List<NaturezasResponse> ptrLkpSubalineaReceita (String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubalineaReceita");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -1642,10 +1606,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1692,25 +1658,21 @@ public class TransparenciaApi {
 	 * Consulta de conta da natureza da receita da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return NaturezasResponse
 	 */
-	public NaturezasResponse ptrLkpSubalineaReceita2 (String id, String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public NaturezasResponse ptrLkpSubalineaReceita2 (String id, String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpSubalineaReceita2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubalineaReceita2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -1743,10 +1705,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1792,20 +1756,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta dos programas da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<ProgramaResponse>
 	 */
-	public List<ProgramaResponse> ptrLkpPrograma (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<ProgramaResponse> ptrLkpPrograma (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpPrograma");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -1834,10 +1794,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1884,24 +1846,20 @@ public class TransparenciaApi {
 	 * Consulta do programa da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return ProgramaResponse
 	 */
-	public ProgramaResponse ptrLkpPrograma2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public ProgramaResponse ptrLkpPrograma2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpPrograma2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpPrograma2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -1932,10 +1890,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -1981,21 +1941,17 @@ public class TransparenciaApi {
 	/**
 	 * Consulta dos projetos e atividades da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<ProjetoAtividadeResponse>
 	 */
-	public List<ProjetoAtividadeResponse> ptrLkpProjetoAtividade (String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public List<ProjetoAtividadeResponse> ptrLkpProjetoAtividade (String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpProjetoAtividade");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2026,10 +1982,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2076,25 +2034,21 @@ public class TransparenciaApi {
 	 * Consulta do projeto e atividade da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return ProjetoAtividadeResponse
 	 */
-	public ProjetoAtividadeResponse ptrLkpProjetoAtividade2 (String id, String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public ProjetoAtividadeResponse ptrLkpProjetoAtividade2 (String id, String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpProjetoAtividade2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpProjetoAtividade2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -2127,10 +2081,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2176,24 +2132,20 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das receitas da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @param ano Ano de exercÃ­cio
 	 * @param mes MÃªs desejado
 	 * @param unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades
 	 * @param natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas
 	 * @return List<ReceitaResponse>
 	 */
-	public List<ReceitaResponse> ptrFtReceita (String accessToken, String clientId, String offset, String limit, String ano, String mes, String unidade, String natureza) throws ApiException {
+	public List<ReceitaResponse> ptrFtReceita (String clientId, String offset, String limit, List<String> fields, List<String> filters, String ano, String mes, String unidade, String natureza) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrFtReceita");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2222,6 +2174,10 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		if (ano != null)
 			queryParams.put("ano", apiClient.parameterToString(ano));
 		if (mes != null)
@@ -2232,8 +2188,6 @@ public class TransparenciaApi {
 			queryParams.put("natureza", apiClient.parameterToString(natureza));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2280,28 +2234,24 @@ public class TransparenciaApi {
 	 * Consulta da receita da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @param ano Ano de exercÃ­cio, lista disponÃ­vel em GET /transparencia/anosExercicioReceita
 	 * @param mes MÃªs desejado
 	 * @param unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades
 	 * @param natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas
 	 * @return ReceitaResponse
 	 */
-	public ReceitaResponse ptrFtReceita2 (String id, String accessToken, String clientId, String offset, String limit, String ano, String mes, String unidade, String natureza) throws ApiException {
+	public ReceitaResponse ptrFtReceita2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters, String ano, String mes, String unidade, String natureza) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrFtReceita2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrFtReceita2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -2332,6 +2282,10 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		if (ano != null)
 			queryParams.put("ano", apiClient.parameterToString(ano));
 		if (mes != null)
@@ -2342,8 +2296,6 @@ public class TransparenciaApi {
 			queryParams.put("natureza", apiClient.parameterToString(natureza));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2389,20 +2341,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta dos sub-itens das contas.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<SubItensContasResponse>
 	 */
-	public List<SubItensContasResponse> ptrLkpSubitemConta (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<SubItensContasResponse> ptrLkpSubitemConta (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubitemConta");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2431,10 +2379,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2481,24 +2431,20 @@ public class TransparenciaApi {
 	 * Consulta do sub-item das contas.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return SubItensContasResponse
 	 */
-	public SubItensContasResponse ptrLkpSubitemConta2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public SubItensContasResponse ptrLkpSubitemConta2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpSubitemConta2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubitemConta2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -2529,10 +2475,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2578,20 +2526,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das sub-funÃ§Ãµes da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<SubfuncoesResponse>
 	 */
-	public List<SubfuncoesResponse> ptrLkpSubfuncao (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<SubfuncoesResponse> ptrLkpSubfuncao (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubfuncao");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2620,10 +2564,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2670,24 +2616,20 @@ public class TransparenciaApi {
 	 * Consulta da sub-funÃ§Ã£o da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return SubfuncoesResponse
 	 */
-	public SubfuncoesResponse ptrLkpSubfuncao2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public SubfuncoesResponse ptrLkpSubfuncao2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpSubfuncao2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpSubfuncao2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -2718,10 +2660,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2767,20 +2711,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta dos tipos de licitaÃ§Ãµes.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<TipoLicitacoesResponse>
 	 */
-	public List<TipoLicitacoesResponse> ptrLkpTipoLicitacao (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<TipoLicitacoesResponse> ptrLkpTipoLicitacao (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpTipoLicitacao");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2809,10 +2749,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2859,24 +2801,20 @@ public class TransparenciaApi {
 	 * Consulta do tipo de licitaÃ§Ã£o.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return TipoLicitacoesResponse
 	 */
-	public TipoLicitacoesResponse ptrLkpTipoLicitacao2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public TipoLicitacoesResponse ptrLkpTipoLicitacao2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpTipoLicitacao2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpTipoLicitacao2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -2907,10 +2845,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -2956,20 +2896,16 @@ public class TransparenciaApi {
 	/**
 	 * Consulta das unidades da preifeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<UnidadesResponse>
 	 */
-	public List<UnidadesResponse> ptrLkpUnidadeOrcamentaria (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<UnidadesResponse> ptrLkpUnidadeOrcamentaria (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpUnidadeOrcamentaria");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -2998,10 +2934,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -3048,24 +2986,20 @@ public class TransparenciaApi {
 	 * Consulta da unidade da preifeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return UnidadesResponse
 	 */
-	public UnidadesResponse ptrLkpUnidadeOrcamentaria2 (String id, String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public UnidadesResponse ptrLkpUnidadeOrcamentaria2 (String id, String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpUnidadeOrcamentaria2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpUnidadeOrcamentaria2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -3096,10 +3030,12 @@ public class TransparenciaApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -3145,21 +3081,17 @@ public class TransparenciaApi {
 	/**
 	 * Consulta de contas das unidades gestoras da prefeitura.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<UnidadeGestoraResponse>
 	 */
-	public List<UnidadeGestoraResponse> ptrLkpUnidadeGestora (String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public List<UnidadeGestoraResponse> ptrLkpUnidadeGestora (String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpUnidadeGestora");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -3190,10 +3122,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -3240,25 +3174,21 @@ public class TransparenciaApi {
 	 * Consulta de conta da unidade gestora da prefeitura.
 	 * 
 	 * @param id Identificador do registro.
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	 * @param expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return UnidadeGestoraResponse
 	 */
-	public UnidadeGestoraResponse ptrLkpUnidadeGestora2 (String id, String accessToken, String clientId, String offset, String limit, String expand) throws ApiException {
+	public UnidadeGestoraResponse ptrLkpUnidadeGestora2 (String id, String clientId, String offset, String limit, String expand, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
 			throw new ApiException(400, "Missing the required parameter 'id' when calling ptrLkpUnidadeGestora2");
-		}
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling ptrLkpUnidadeGestora2");
 		}
 		
 		// verify the required parameter 'clientId' is set
@@ -3291,10 +3221,12 @@ public class TransparenciaApi {
 			queryParams.put("limit", apiClient.parameterToString(limit));
 		if (expand != null)
 			queryParams.put("expand", apiClient.parameterToString(expand));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		

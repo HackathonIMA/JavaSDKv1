@@ -1,5 +1,7 @@
 package br.gov.ima.api.v1.model;
 
+import br.gov.ima.api.v1.model.LinksModel;
+import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -7,11 +9,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AcoesResponse  {
 	
 	
+	private List<LinksModel> links = new ArrayList<LinksModel>() ;
 	private String ID = null;
 	private String nome = null;
 	private Integer descricao = null;
 	private String numero = null;
 
+	
+	/**
+	 **/
+	@JsonProperty("links")
+	public List<LinksModel> getLinks() {
+		return links;
+	}
+	
+	public void setLinks(List<LinksModel> links) {
+		this.links = links;
+	}
 	
 	/**
 	 * Identificador do registro.
@@ -67,6 +81,7 @@ public class AcoesResponse  {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AcoesResponse {\n");
 		
+		sb.append("  links: ").append(links).append("\n");
 		sb.append("  ID: ").append(ID).append("\n");
 		sb.append("  nome: ").append(nome).append("\n");
 		sb.append("  descricao: ").append(descricao).append("\n");

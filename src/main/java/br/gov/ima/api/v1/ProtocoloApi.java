@@ -43,7 +43,6 @@ public class ProtocoloApi {
 	/**
 	 * Dados sobre protocolo
 	 * O recurso de protocolo existe para fornecer informaÃ§Ãµes sobre protocolos gerados pela prefeitura.\n
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
@@ -51,16 +50,13 @@ public class ProtocoloApi {
 	 * @param codigoBairro Filtra resultados por cÃ³digo do bairro.
 	 * @param siglaExpediente Filtra resultados pelo cÃ³digo da secretaria expediente.
 	 * @param anoProcesso Filtra resultados pelo ano em que foram lanÃ§ados.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<ProtocoloResponse>
 	 */
-	public List<ProtocoloResponse> protocoloGet (String accessToken, String clientId, String offset, String limit, String nomeRegiao, Integer codigoBairro, String siglaExpediente, Integer anoProcesso) throws ApiException {
+	public List<ProtocoloResponse> protocoloGet (String clientId, String offset, String limit, String nomeRegiao, Integer codigoBairro, String siglaExpediente, Integer anoProcesso, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling protocoloGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -97,10 +93,12 @@ public class ProtocoloApi {
 			queryParams.put("siglaExpediente", apiClient.parameterToString(siglaExpediente));
 		if (anoProcesso != null)
 			queryParams.put("anoProcesso", apiClient.parameterToString(anoProcesso));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -146,19 +144,15 @@ public class ProtocoloApi {
 	/**
 	 * Dados sobre um protocolo especifico.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param id Identificador do protocolo.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return ProtocoloResponse
 	 */
-	public ProtocoloResponse protocoloIdGet (String accessToken, String clientId, Long id) throws ApiException {
+	public ProtocoloResponse protocoloIdGet (String clientId, Long id, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling protocoloIdGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -179,10 +173,12 @@ public class ProtocoloApi {
 		Map<String, String> headerParams = new HashMap<String, String>();
 		Map<String, String> formParams = new HashMap<String, String>();
 
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		

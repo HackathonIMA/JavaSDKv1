@@ -43,20 +43,16 @@ public class EducaoApi {
 	/**
 	 * Dados sobre educaÃ§Ã£o
 	 * O recurso de educaÃ§Ã£o retorna dados sobre instituiÃ§Ãµes educacionais na \nÃ¡rea de Campinas.\n
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<EducacaoResponse>
 	 */
-	public List<EducacaoResponse> educacaoGet (String accessToken, String clientId, String offset, String limit) throws ApiException {
+	public List<EducacaoResponse> educacaoGet (String clientId, String offset, String limit, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling educacaoGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -85,10 +81,12 @@ public class EducaoApi {
 			queryParams.put("offset", apiClient.parameterToString(offset));
 		if (limit != null)
 			queryParams.put("limit", apiClient.parameterToString(limit));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -134,19 +132,15 @@ public class EducaoApi {
 	/**
 	 * Retorna um dado sobre educaÃ§Ã£o especÃ­fico.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param id Identificador do registro.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return EducacaoResponse
 	 */
-	public EducacaoResponse educacaoIdGet (String accessToken, String clientId, Long id) throws ApiException {
+	public EducacaoResponse educacaoIdGet (String clientId, Long id, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling educacaoIdGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -167,10 +161,12 @@ public class EducaoApi {
 		Map<String, String> headerParams = new HashMap<String, String>();
 		Map<String, String> formParams = new HashMap<String, String>();
 
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		

@@ -19,15 +19,15 @@ import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
 
-public class AtendimentosApi {
+public class AtendimentoApi {
 
 	private ApiClient apiClient;
 
-	public AtendimentosApi() {
+	public AtendimentoApi() {
 		this(Configuration.getDefaultApiClient());
 	}
 
-	public AtendimentosApi(ApiClient apiClient) {
+	public AtendimentoApi(ApiClient apiClient) {
 		this.apiClient = apiClient;
 	}
 
@@ -43,7 +43,6 @@ public class AtendimentosApi {
 	/**
 	 * Dados sobre atendimentos
 	 * O recurso 156 foi projetado para retornar todas as informaÃ§Ãµes sobre solicitaÃ§Ãµes e atendimentos realizados pela prefeitura de Campinas. Ã recomendado o uso de filtros passados na query param para retornar conjuntos de informaÃ§Ãµes especificas.\n
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
@@ -51,35 +50,32 @@ public class AtendimentosApi {
 	 * @param anoSolicitacao Filtra os resultados por ano em que a solicitaÃ§Ã£o foi feita.
 	 * @param codigoCEP Filtra os resultados pelo CEP em que a solicitacao estÃ¡ cadastrada.
 	 * @param descricaoStatus Filtra os resultados por status, passado o tipo de status referente. (Exemplo &gt; &#39;EXECUTADO&#39;)
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<SolicitacaoResponse>
 	 */
-	public List<SolicitacaoResponse> 156Get (String accessToken, String clientId, String offset, String limit, String nomeRegiao, Integer anoSolicitacao, String codigoCEP, String descricaoStatus) throws ApiException {
+	public List<SolicitacaoResponse> atendimentoGet (String clientId, String offset, String limit, String nomeRegiao, Integer anoSolicitacao, String codigoCEP, String descricaoStatus, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling 156Get");
-		}
-		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
-			throw new ApiException(400, "Missing the required parameter 'clientId' when calling 156Get");
+			throw new ApiException(400, "Missing the required parameter 'clientId' when calling atendimentoGet");
 		}
 		
 		// verify the required parameter 'offset' is set
 		if (offset == null) {
-			throw new ApiException(400, "Missing the required parameter 'offset' when calling 156Get");
+			throw new ApiException(400, "Missing the required parameter 'offset' when calling atendimentoGet");
 		}
 		
 		// verify the required parameter 'limit' is set
 		if (limit == null) {
-			throw new ApiException(400, "Missing the required parameter 'limit' when calling 156Get");
+			throw new ApiException(400, "Missing the required parameter 'limit' when calling atendimentoGet");
 		}
 		
 
 		// create path and map variables
-		String path = "/156".replaceAll("\\{format\\}","json");
+		String path = "/atendimento".replaceAll("\\{format\\}","json");
 
 		Map<String, String> queryParams = new HashMap<String, String>();
 		Map<String, String> headerParams = new HashMap<String, String>();
@@ -97,10 +93,12 @@ public class AtendimentosApi {
 			queryParams.put("codigoCEP", apiClient.parameterToString(codigoCEP));
 		if (descricaoStatus != null)
 			queryParams.put("descricaoStatus", apiClient.parameterToString(descricaoStatus));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -146,43 +144,41 @@ public class AtendimentosApi {
 	/**
 	 * Dado de um atendimento especifico.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param id Identificador da solicitaÃ§Ã£o
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return SolicitacaoResponse
 	 */
-	public SolicitacaoResponse 156IdGet (String accessToken, String clientId, String id) throws ApiException {
+	public SolicitacaoResponse atendimentoIdGet (String clientId, String id, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
 		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling 156IdGet");
-		}
-		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
-			throw new ApiException(400, "Missing the required parameter 'clientId' when calling 156IdGet");
+			throw new ApiException(400, "Missing the required parameter 'clientId' when calling atendimentoIdGet");
 		}
 		
 		// verify the required parameter 'id' is set
 		if (id == null) {
-			throw new ApiException(400, "Missing the required parameter 'id' when calling 156IdGet");
+			throw new ApiException(400, "Missing the required parameter 'id' when calling atendimentoIdGet");
 		}
 		
 
 		// create path and map variables
-		String path = "/156/{id}".replaceAll("\\{format\\}","json")
+		String path = "/atendimento/{id}".replaceAll("\\{format\\}","json")
 			.replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
 		Map<String, String> queryParams = new HashMap<String, String>();
 		Map<String, String> headerParams = new HashMap<String, String>();
 		Map<String, String> formParams = new HashMap<String, String>();
 
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		

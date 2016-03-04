@@ -43,7 +43,6 @@ public class SadeApi {
 	/**
 	 * Dados sobre sÃ¡ude
 	 * O recurso sÃ¡ude tem a funÃ§Ã£o de mostrar os dados sobre atendimentos hospitalares realizados em hospitais da Ã¡rea de Campinas.\n
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	 * @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
@@ -52,16 +51,13 @@ public class SadeApi {
 	 * @param codigoProcedimentoSUS Filtra resultados por cÃ³digo de procedimento.
 	 * @param codigoAtividadeProfissional Filtra resultados pelo cÃ³digo do profissional.
 	 * @param distritoAtendimento Filtra resultados por distrito de atendimento.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return List<SaudeResponse>
 	 */
-	public List<SaudeResponse> saudeGet (String accessToken, String clientId, String offset, String limit, String uf, String municipio, Long codigoProcedimentoSUS, Integer codigoAtividadeProfissional, String distritoAtendimento) throws ApiException {
+	public List<SaudeResponse> saudeGet (String clientId, String offset, String limit, String uf, String municipio, Long codigoProcedimentoSUS, Integer codigoAtividadeProfissional, String distritoAtendimento, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling saudeGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -100,10 +96,12 @@ public class SadeApi {
 			queryParams.put("codigoAtividadeProfissional", apiClient.parameterToString(codigoAtividadeProfissional));
 		if (distritoAtendimento != null)
 			queryParams.put("distritoAtendimento", apiClient.parameterToString(distritoAtendimento));
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
@@ -149,19 +147,15 @@ public class SadeApi {
 	/**
 	 * Retorna um dado hospitalar especÃ­fico.
 	 * 
-	 * @param accessToken Access Token com as permissÃµes de acesso.
 	 * @param clientId Token disponibilizado na criaÃ§Ã£o da APP.
 	 * @param id Identificador do protocolo.
+	 * @param fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	 * @param filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	 * @return SaudeResponse
 	 */
-	public SaudeResponse saudeIdGet (String accessToken, String clientId, Long id) throws ApiException {
+	public SaudeResponse saudeIdGet (String clientId, Long id, List<String> fields, List<String> filters) throws ApiException {
 		
 		Object postBody = null;
-		
-		// verify the required parameter 'accessToken' is set
-		if (accessToken == null) {
-			throw new ApiException(400, "Missing the required parameter 'accessToken' when calling saudeIdGet");
-		}
 		
 		// verify the required parameter 'clientId' is set
 		if (clientId == null) {
@@ -182,10 +176,12 @@ public class SadeApi {
 		Map<String, String> headerParams = new HashMap<String, String>();
 		Map<String, String> formParams = new HashMap<String, String>();
 
+		if (fields != null)
+			queryParams.put("fields", apiClient.parameterToString(fields));
+		if (filters != null)
+			queryParams.put("filters", apiClient.parameterToString(filters));
 		
 
-		if (accessToken != null)
-			headerParams.put("access-token", apiClient.parameterToString(accessToken));
 		if (clientId != null)
 			headerParams.put("client_id", apiClient.parameterToString(clientId));
 		
